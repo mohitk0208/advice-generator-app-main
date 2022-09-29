@@ -28,7 +28,7 @@ body {
   padding: 1rem 1rem 3rem;
   position: relative;
   background-color: hsl(217, 19%, 24%);
-  box-shadow: 0 0 20px 5px hsla(218, 23%, 16%);
+  box-shadow: 0 0 50px 20px hsl(218, 23%, 16%);
 }
 .advice__id {
   text-transform: uppercase;
