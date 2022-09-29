@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   height: 100vh;
@@ -10,18 +16,16 @@ body {
   height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   color: hsl(193, 38%, 86%);
 }
 .advice {
-  width: 444px;
   border: 1px solid hsl(218, 23%, 16%);
   text-align: center;
   border-radius: 1rem;
-  padding: 1rem 2rem 3rem;
+  padding: 1rem 1rem 3rem;
   position: relative;
   background-color: hsl(217, 19%, 24%);
   box-shadow: 0 0 20px 5px hsla(218, 23%, 16%);
@@ -31,11 +35,21 @@ body {
   letter-spacing: 4px;
   font-size: 0.8rem;
   color: hsl(150, 100%, 66%);
+  padding: 00.5rem 0;
 }
 .advice__text {
+  width: 444px;
   font-size: 28px;
+  padding: 1rem 0 2rem;
 }
 .divider {
+  padding: 0.5rem 0;
+}
+.divider-desktop {
+  display: block;
+}
+.divider-mobile {
+  display: none;
 }
 
 .new-advice-btn {
@@ -67,4 +81,35 @@ body {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (max-width: 375px) {
+  .advice {
+    width: 95%;
+    padding: 1rem 0.5rem 3rem;
+  }
+
+  .advice__id {
+    font-size: 0.7rem;
+    padding: 1rem 0;
+  }
+
+  .advice__text {
+    width: auto;
+    font-size: 24px;
+    padding: 1rem 0;
+  }
+
+  .divider-desktop {
+    display: none;
+  }
+  .divider-mobile {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+
+  .new-advice-btn {
+    padding: 1rem;
+  }
 }
