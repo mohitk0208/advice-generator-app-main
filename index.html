@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Frontend Mentor | Advice generator app</title>
+  </head>
+  <body>
+    <div class="advice-container">
+      <div class="advice">
+        <p class="advice__id">Advice #<span id="advice-id">117</span></p>
+        <p class="advice__text">
+          It is easy to sit up and take notice, what's difficult is getting up
+          and taking action.
+        </p>
+        <img
+          class="divider"
+          src="./images/pattern-divider-desktop.svg"
+          alt=""
+        />
+        <button class="new-advice-btn">
+          <img
+            class="new-advice-btn__img"
+            src="./images/icon-dice.svg"
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Mohit Kumar</a>.
+    </div>
+    <script>
+      const adviceId = document.getElementById("advice-id");
+      const adviceText = document.querySelector(".advice__text");
+      const getAdviceBtn = document.querySelector(".new-advice-btn");
+
+      async function fetchData() {
+        const res = await fetch("https://api.adviceslip.com/advice", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            accept: "application/json",
+          },
+        });
+        const resData = await res.json();
+
+        adviceId.innerText = resData.slip.id;
+        adviceText.innerText = resData.slip.advice;
+      }
+
+      getAdviceBtn.addEventListener("click", () => {
+        fetchData();
+      });
+
+      fetchData();
+    </script>
+  </body>
+</html>
